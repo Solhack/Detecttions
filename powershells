@@ -1,0 +1,8 @@
+PowerShell Script
+
+Get-Process | where {$_.ProcessName -eq "ssh.exe" -and $_.Modules.ModuleName -eq "msys-2.0.dll"}
+
+Hell's Gate technique for bypassing EDR
+Get-Process | where {$_.ProcessName -eq "ntoskrnl.exe" -and $_.CommandLine -match "ntdll.dll"}
+
+This PowerShell script will identify any instances of the ssh.exe process that have the msys-2.0.dll library loaded. This is a common behaviour of Process Mockingjay.
