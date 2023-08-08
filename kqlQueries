@@ -1,0 +1,10 @@
+The ntdll.dll also covers for #win32 #api usage
+The KQL Query will just have to be modified into a custom detection rule on #windows #defender and #sentinel
+KQL Query
+
+DeviceProcessEvents | where ProcessName == "ssh.exe" and FileName == "msys-2.0.dll"
+
+Hell's Gate technique for bypassing EDR
+DeviceProcessEvents | where ProcessName == "ntoskrnl.exe" and CommandLine contains "ntdll.dll"
+
+This KQL query will identify instances of the ssh.exe process launching the msys-2.0.dll library. This is a common behaviour of Process Mockingjay.
