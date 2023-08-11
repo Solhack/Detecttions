@@ -1,0 +1,2 @@
+index=<your_index> sourcetype=<your_sourcetype>
+| search ProcessName="ntoskrnl.exe" CommandLine="ntdll.dll"
