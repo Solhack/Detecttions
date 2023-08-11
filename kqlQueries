@@ -8,3 +8,10 @@ Hell's Gate technique for bypassing EDR
 DeviceProcessEvents | where ProcessName == "ntoskrnl.exe" and CommandLine contains "ntdll.dll"
 
 This KQL query will identify instances of the ssh.exe process launching the msys-2.0.dll library. This is a common behaviour of Process Mockingjay.
+
+
+**Reporting**
+DeviceNetworkEvents
+| where ProcessName == "ntoskrnl.exe"
+| format
+| save "ntoskrnl_network_connections.csv"
