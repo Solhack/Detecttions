@@ -1,0 +1,7 @@
+- name: Search for events
+  win_shell: |
+    Get-WinEvent -LogName Security -FilterXPath "*[System[Provider[@Name='Microsoft-Windows-Security-Auditing'] and (EventID=4688)] and EventData[Data[@Name='NewProcessName'] and (Data='ntoskrnl.exe') and Data[@Name='CommandLine'] and Data[contains(., 'ntdll.dll')]]]"
+  register: event_result
+
+- debug:
+    var: event_result.stdout_lines
